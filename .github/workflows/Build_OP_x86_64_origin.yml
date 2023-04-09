@@ -11,9 +11,9 @@ on:
   release:
     types: [published]
 
-  #push:
-    #branches: 
-      #- master
+  push:
+    branches: 
+      - master
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -62,8 +62,9 @@ jobs:
         REPO_URL: https://git.openwrt.org/openwrt/openwrt.git
         REPO_BRANCH: v22.03.3
       run: |
-        git clone --depth 1 $REPO_URL -b $REPO_BRANCH
+        git clone $REPO_URL -b $REPO_BRANCH
         cd openwrt
+        git checkout v22.03.3
     #    echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
         
     - name: Update & Install feeds
