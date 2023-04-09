@@ -11,9 +11,9 @@ on:
   release:
     types: [published]
 
-  push:
-    branches: 
-      - master
+  #push:
+    #branches: 
+      #- master
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -59,10 +59,10 @@ jobs:
         sudo -E apt-get clean
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/pizi-me/op.git
-        REPO_BRANCH: main
+        REPO_URL: https://git.openwrt.org/openwrt/openwrt.git
+        REPO_BRANCH: v22.03.3
       run: |
-        git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+        git clone --depth 1 $REPO_URL -b $REPO_BRANCH
         cd openwrt
     #    echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
         
