@@ -12,9 +12,9 @@ on:
   repository_dispatch:
   workflow_dispatch:
   
-  push:
-    branches: 
-      - master
+  #push:
+   # branches: 
+    #  - master
 
 jobs:
   build:
@@ -55,11 +55,11 @@ jobs:
     - name: Clone source code
       env: 
         REPO_URL: https://git.openwrt.org/openwrt/openwrt.git
-        REPO_BRANCH: v22.03.4
+        REPO_BRANCH: v22.03.3
       run: |
         git clone $REPO_URL -b $REPO_BRANCH
         cd openwrt
-        git checkout v22.03.4
+        git checkout v22.03.3
         # echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
         
     - name: Update & Install feeds
